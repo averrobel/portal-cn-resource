@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加拿大28 简明指南 · 知识库入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f4f8;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2a3a;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+        }
+
+        .page {
+            max-width: 1040px;
+            margin: 0 auto;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: white;
+            padding: 2.8rem 2.5rem;
+            border-radius: 28px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border: 1px solid #e7eaef;
+            margin-bottom: 2.2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: -0.3px;
+            color: #19222f;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .sub {
+            color: #526477;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 0.5rem;
+        }
+
+        .hero .tagline {
+            background: #eef1f6;
+            display: inline-block;
+            padding: 0.25rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #2f3f58;
+            border: 1px solid #dbe0e8;
+            margin-top: 0.6rem;
+        }
+
+        /* 网格卡片区域：目录感布局 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.8rem 1.6rem;
+            border: 1px solid #dde2ea;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.03);
+            transition: box-shadow 0.15s ease, border-color 0.1s;
+        }
+
+        .card:hover {
+            border-color: #b9c2d1;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.04);
+        }
+
+        .card h2 {
+            font-size: 1.2rem;
+            font-weight: 580;
+            margin-bottom: 0.6rem;
+            color: #1d2b3f;
+            border-left: 4px solid #8496b0;
+            padding-left: 0.75rem;
+        }
+
+        .card p, .card ul {
+            font-size: 0.95rem;
+            color: #2e3f57;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            padding: 0.3rem 0 0.3rem 1.3rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #6d7e99;
+            font-weight: 700;
+        }
+
+        .inset-link {
+            color: #2057a0;
+            text-decoration: none;
+            border-bottom: 1px solid #b7c7dd;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .inset-link:hover {
+            border-bottom-color: #2057a0;
+            color: #103a6b;
+        }
+
+        /* 说明区 / 提示区 卡片变体 */
+        .note-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            border: 1px solid #e7eaef;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            margin-bottom: 1.5rem;
+        }
+
+        .note-card h3 {
+            font-weight: 580;
+            font-size: 1.15rem;
+            margin-bottom: 0.8rem;
+            color: #1e2b3e;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .note-card p {
+            color: #2f405a;
+            margin-bottom: 0.5rem;
+        }
+
+        .note-card .meta-note {
+            background: #f5f7fb;
+            padding: 0.6rem 1rem;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            color: #3b4d6b;
+            border: 1px solid #e0e5ee;
+            margin-top: 0.8rem;
+        }
+
+        .two-col {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .two-col > * {
+            flex: 1 1 260px;
+            background: white;
+            border-radius: 20px;
+            padding: 1.8rem 1.8rem;
+            border: 1px solid #e7eaef;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .two-col h4 {
+            font-weight: 550;
+            margin-bottom: 0.5rem;
+            color: #1d293b;
+            font-size: 1.05rem;
+        }
+
+        .faq-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eef1f6;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #15212e;
+        }
+
+        .faq-a {
+            color: #435574;
+            font-size: 0.92rem;
+            margin-top: 0.1rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            border-top: 1px solid #d6dce6;
+            padding-top: 1.8rem;
+            margin-top: 2.2rem;
+            color: #556882;
+            font-size: 0.85rem;
+        }
+
+        .footer-note a {
+            color: #2b4d78;
+            text-decoration: none;
+            border-bottom: 1px solid #bcc8db;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #2b4d78;
+        }
+
+        @media (max-width: 560px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .card, .two-col > *, .note-card {
+                padding: 1.2rem 1rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 简明指南 -->
+    <div class="hero">
+        <h1>加拿大28 · 从零开始</h1>
+        <div class="sub">一份面向新朋友的简明知识库，涵盖基础规则、查询习惯与访问提醒</div>
+        <div class="tagline">📘 目录感布局 · 快速定位</div>
+    </div>
+
+    <!-- 网格卡片：目录入口 -->
+    <div class="grid">
+        <div class="card">
+            <h2>📋 基础知识</h2>
+            <ul>
+                <li>游戏源于加拿大28彩种，数字范围 0–27</li>
+                <li>每期结果由三个独立数字相加得出</li>
+                <li>常见玩法：大小、单双、组合、和值</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>📎 查询资源</h2>
+            <p>日常查询走势与历史记录可参考 <a href="https://ca-28.com" class="inset-link">加拿大28</a> 平台，数据更新及时，页面简洁适合快速浏览。</p>
+            <p style="margin-top: 0.6rem;">习惯使用电脑或移动端均可直接访问，无需额外配置。</p>
+        </div>
+        <div class="card">
+            <h2>⚠️ 访问提醒</h2>
+            <ul>
+                <li>建议通过主流浏览器访问，避免兼容问题</li>
+                <li>使用公共网络时注意个人信息保护</li>
+                <li>部分网络环境可能延迟，可稍后再试</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>📌 常见关注点</h2>
+            <ul>
+                <li>开奖节奏：通常每日多次，具体以实际页面为准</li>
+                <li>历史数据提供图表与表格两种视图</li>
+                <li>不提供任何形式的投注或交易功能</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 说明区 + 提示区 两列 -->
+    <div class="two-col">
+        <div>
+            <h4>🧭 简明指南</h4>
+            <p>如果你是第一次接触 <strong>加拿大28</strong>，建议先从了解基本规则入手。数字总和决定结果，不同和值对应不同赔率区间。许多经验玩家会结合走势图来辅助判断，但请记住所有结果都是独立随机事件。</p>
+            <p>网站 <a href="https://ca-28.com" class="inset-link">加拿大28</a> 提供干净的数据面板，适合新手熟悉历史分布。</p>
+        </div>
+        <div>
+            <h4>🔔 提示区</h4>
+            <p>📌 不要轻信所谓“内幕”或“必中”策略，保持理性心态最重要。<br>
+            📌 定期清理浏览器缓存，有助于保持页面加载流畅。<br>
+            📌 如果页面显示异常，可尝试切换网络或使用其他设备访问。</p>
+        </div>
+    </div>
+
+    <!-- 相关信息区 / FAQ摘要 -->
+    <div class="note-card">
+        <h3>❓ 相关信息 · FAQ 摘要</h3>
+        <div class="faq-item">
+            <div class="faq-q">加拿大28和北京28一样吗？</div>
+            <div class="faq-a">规则类似，但属于不同彩种，开奖号码和频率有区别。建议以各自平台公布为准。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">如何查看历史数据？</div>
+            <div class="faq-a">在 <a href="https://ca-28.com" class="inset-link">加拿大28</a> 页面通常有“走势”或“历史”栏目，可按日期或期数筛选。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">我需要注册账号才能看吗？</div>
+            <div class="faq-a">基础查询一般无需登录，可直接浏览公开数据。具体以网站实际功能为准。</div>
+        </div>
+        <div class="meta-note">
+            💡 更多细节欢迎自行探索，保持信息交叉印证的习惯。
+        </div>
+    </div>
+
+    <!-- footer 轻信息 -->
+    <div class="footer-note">
+        内容仅供学习参考 · 理性对待 · <a href="https://ca-28.com">加拿大28</a> 数据页面可作为起点
+    </div>
+</div>
+</body>
+</html>
